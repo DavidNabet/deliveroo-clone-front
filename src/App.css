@@ -7,7 +7,7 @@
   --bookmark: #ff8000;
   --black: #2e3333;
   --btn-bg-cart: #bac3c3;
-  --btn-color-cart: ##8b9a9b;
+  --btn-color-cart: #8b9a9b;
   --border-header: #808484;
   --text-description: #868a8a;
   --bg-sections: #f3f5f5;
@@ -139,7 +139,7 @@ header {
   align-items: flex-start;
   cursor: pointer;
   padding: 1.5rem;
-  min-height: 16rem;
+  max-height: 16rem;
   border-radius: 5px;
 }
 .content .menu .menuItems--items .menuItem .card .text {
@@ -153,7 +153,7 @@ header {
   height: 4.1rem;
   overflow: hidden;
   text-overflow: ellipsis;
-  margin: 0 0 1.6rem;
+  margin: 0 0 1rem;
 }
 
 .content .menu .menuItems--items .menuItem .card .text .infos {
