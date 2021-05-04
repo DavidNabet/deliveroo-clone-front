@@ -10,9 +10,8 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
 
   const fetchData = async () => {
-    const response = await axios.get(
-      "https://deliveroo-back-project.herokuapp.com/"
-    );
+    // "https://deliveroo-back-project.herokuapp.com/"
+    const response = await axios.get("http://localhost:3200/");
     setData(response.data);
     setIsLoading(false);
   };
@@ -27,7 +26,7 @@ function App() {
     <>
       <Header />
       <Hero data={data.restaurant} />
-      <Content data={data} />
+      <Content data={data.categories} />
     </>
   );
 }
