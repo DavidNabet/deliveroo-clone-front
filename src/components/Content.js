@@ -3,11 +3,15 @@ import Section from "./Section";
 import Cart from "./Cart";
 
 const Content = ({ data }) => {
-  const [menu, setMenu] = useState(null);
+  const [panier, setPanier] = useState([]);
 
-  const receiveDateFromMenu = (index) => {
-    console.log("index reçu: ", index);
-    setMenu(index);
+  const receiveDateFromMenu = (tab) => {
+    console.log("tab: ", tab);
+    const newCart = [...panier];
+    newCart.push(tab);
+    console.log("avant ", newCart);
+    setPanier(newCart);
+    console.log("après ", newCart);
   };
 
   return (
@@ -33,7 +37,7 @@ const Content = ({ data }) => {
         })}
       </div>
       <div className="cart">
-        <Cart fromMenu={menu} />
+        <Cart fromMenu={panier} />
       </div>
     </div>
   );

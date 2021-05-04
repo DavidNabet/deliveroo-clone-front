@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Section = ({ data, returnData }) => {
-  const handleClick = (id) => {
-    returnData(id);
+  const handleClick = (idMenu) => {
+    // let newTab = [];
+    // newTab.push(returnData(idMenu));
+    // setPanier(returnData({ menu: idMenu, panier }));
+    returnData(idMenu);
   };
   return (
     <>
