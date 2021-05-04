@@ -8,6 +8,7 @@ const Content = ({ data }) => {
   const receiveDateFromMenu = (tab) => {
     console.log("tab: ", tab);
     const newCart = [...panier];
+    //{ name: tab.title, price: tab.price, quantity: 1 }
     newCart.push(tab);
     console.log("avant ", newCart);
     setPanier(newCart);
