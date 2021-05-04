@@ -52,7 +52,7 @@ const Cart = ({ fromMenu }) => {
                     <div className="cart_line">
                       <div className="cart_counter">
                         <CounterCart
-                          passingQty={(i) => multiplePrice(i.price)}
+                          passingQty={() => multiplePrice(item.price)}
                         />
                       </div>
                       <span className="cart_item-name">{item.title}</span>
