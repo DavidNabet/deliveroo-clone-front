@@ -9,7 +9,12 @@ const Content = ({ data }) => {
     console.log("tab: ", tab);
     const newCart = [...panier];
     //{ name: tab.title, price: tab.price, quantity: 1 }
-    newCart.push(tab);
+    newCart.push({
+      title: tab.title,
+      price: tab.price,
+      quantity: 1,
+      id: tab.id,
+    });
     console.log("avant ", newCart);
     setPanier(newCart);
     console.log("après ", newCart);

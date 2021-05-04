@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import CounterCart from "./CounterCart";
 
 const Cart = ({ fromMenu }) => {
-  // const [quantity, setQuantity] = useState(0);
-
   const FRAIS_L = Number(2.5);
   const subTotal = () => {
     let newNumber;
@@ -16,15 +14,29 @@ const Cart = ({ fromMenu }) => {
     }
   };
 
-  const multiplePrice = (quantity, price) => {
-    return Number(quantity) * Number(price);
-    // return quantity * price;
+  const multiplyPrice = () => {
+    let price = 0;
+    for (let i = 0; i < fromMenu.length; i++) {
+      price += Number(fromMenu[i].price) * fromMenu[i].quantity;
+    }
+    return price;
   };
-  console.log(multiplePrice());
+  console.log(multiplyPrice());
 
   const total = (frais) => {
     return parseInt(subTotal()) + frais;
   };
+
+  // const handleClickMinus = (index) => {
+  //   const newQty = [...fromMenu];
+  //   newQty[index].quantity -= 1;
+  //   setQuantity(newQty);
+  // };
+  // const handleClickPlus = (index) => {
+  //   const newQty = [...fromMenu];
+  //   newQty[index].quantity += 1;
+  //   setQuantity(newQty);
+  // };
 
   return (
     <div className="cart_card">
@@ -45,14 +57,14 @@ const Cart = ({ fromMenu }) => {
           <span>Votre panier est vide</span>
         ) : (
           <div>
-            {fromMenu.map((item, i) => {
+            {fromMenu.map((item, index) => {
               return (
-                <div key={i}>
+                <div key={index}>
                   <div className="cart_items">
                     <div className="cart_line">
                       <div className="cart_counter">
                         <CounterCart
-                          passingQty={() => multiplePrice(item.price)}
+                        // recupQty={multiplyPrice(quantity, item.price)}
                         />
                       </div>
                       <span className="cart_item-name">{item.title}</span>

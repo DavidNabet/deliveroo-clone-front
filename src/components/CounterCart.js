@@ -1,26 +1,45 @@
 import React, { useState } from "react";
 
-const CounterCart = ({ passingQty }) => {
-  const [quantity, setQuantity] = useState(0);
+const CounterCart = ({ cartLine, setCartLine, line }) => {
+  //   const [quantity, setQuantity] = useState(1);
 
-  const handleClickMinus = () => {
-    setQuantity(quantity - 1);
-    passingQuantity(quantity);
-  };
   const handleClickPlus = () => {
-    setQuantity(quantity + 1);
-    passingQuantity(quantity);
+    line.quantity += 1;
+    const newLines = [...cartLine];
+    newLines.push(line);
+    setCartLine(newLines);
+    // setQuantity(quantity - 1);
+    //   passingQuantity(quantity);
+  };
+  const handleClickMinus = () => {
+    line.quantity -= 1;
+    const newLines = [...cartLine];
+    const lineToRemove = newLines.find((item) => item === line);
+    newLines.splice(newLines.indexOf(lineToRemove, 1));
+    setCartLine(newLines);
+    // setQuantity(quantity + 1);
+    // passingQuantity(quantity);
   };
 
-  const passingQuantity = (q) => {
-    passingQty(q);
-  };
+  //   const passingQuantity = (q) => {
+  //     recupQty(q);
+  //   };
 
   return (
     <>
-      <span onClick={handleClickMinus}>-</span>
-      <span>{quantity}</span>
-      <span onClick={handleClickPlus}>+</span>
+      <span
+        // style={{ display: quantity < 1 ? "none" : "inline" }}
+        onClick={handleClickMinus}
+      >
+        -
+      </span>
+      <span>{line.quantity}</span>
+      <span
+        // style={{ display: quantity >= 10 ? "none" : "inline" }}
+        onClick={handleClickPlus}
+      >
+        +
+      </span>
     </>
   );
 };
