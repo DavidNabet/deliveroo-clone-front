@@ -6,7 +6,7 @@ const Section = ({ data }) => {
       {data.categories.map((item, i) => {
         return (
           <>
-            {i < 6 && (
+            {item.meals.length > 0 && (
               <div className="menuItems" key={i}>
                 <h2>{item.name}</h2>
                 <div className="menuItems--items">
