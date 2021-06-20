@@ -43,7 +43,7 @@ const Content = ({ data }) => {
         })}
       </div>
       <div className="cart">
-        <Cart fromMenu={panier} />
+        <Cart fromMenu={panier} setFromMenu={setPanier} />
       </div>
     </div>
   );

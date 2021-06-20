@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import CounterCart from "./CounterCart";
 
-const Cart = ({ fromMenu }) => {
+const Cart = ({ fromMenu, setFromMenu }) => {
   const FRAIS_L = Number(2.5);
   const subTotal = () => {
     let newNumber;
@@ -64,7 +64,10 @@ const Cart = ({ fromMenu }) => {
                     <div className="cart_line">
                       <div className="cart_counter">
                         <CounterCart
-                        // recupQty={multiplyPrice(quantity, item.price)}
+                          fromMenu={fromMenu}
+                          setFromMenu={setFromMenu}
+                          line={item}
+                          // recupQty={multiplyPrice(quantity, item.price)}
                         />
                       </div>
                       <span className="cart_item-name">{item.title}</span>

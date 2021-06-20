@@ -10,8 +10,9 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
 
   const fetchData = async () => {
-    // "https://deliveroo-back-project.herokuapp.com/"
-    const response = await axios.get("http://localhost:3200/");
+    const response = await axios.get(
+      "https://deliveroo-back-project.herokuapp.com/"
+    );
     setData(response.data);
     setIsLoading(false);
   };
