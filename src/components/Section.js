@@ -1,18 +1,11 @@
 import React, { useState } from "react";
 
-const Section = ({ data, returnData }) => {
-	// let newTab = [];
-	// newTab.push(returnData(idMenu));
-	// setPanier(returnData({ menu: idMenu, panier }));
+const Section = ({ data, addCart }) => {
 	return (
 		<>
 			{data.map((menu) => {
 				return (
-					<div
-						className="menuItem"
-						key={menu.id}
-						onClick={() => returnData(menu)}
-					>
+					<div className="menuItem" key={menu.id} onClick={() => addCart(menu)}>
 						<div className="card">
 							<div className="text">
 								<h3>{menu.title}</h3>
