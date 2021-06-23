@@ -1,37 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const Cart = ({ cart, addCart, subStractCart }) => {
-	let totalTTC = 0;
+	const [totalPrice, setTotalPrice] = useState(0);
+	const [totalItems, setTotalItems] = useState(0);
+	useEffect(() => {
+		let items = 0;
+		let price = 0;
+		cart.forEach((item) => {
+			items += item.quantity;
+			price += item.quantity * item.price;
+		});
+		setTotalPrice(price);
+		setTotalItems(items);
+	}, [cart, totalPrice, totalItems, setTotalPrice, setTotalItems]);
 	const FRAIS_L = Number(2.5);
-	let datas = {
-		headers: cart.map((i) => Number(i.quantity)),
-		prices: cart.map((i) => Number(i.price)),
-	};
-	const subTotal = () => {
-		let newNumber;
-		let nums = cart.map((i) => Number(i.price));
-		if (nums.length <= 0) {
-			return nums;
-		}
-		// else if(datas.headers.some((elem) => elem > 1)) {
-
-		// }
-		else {
-			newNumber = nums.reduce((a, b) => (a += b));
-			return Number(newNumber);
-		}
-	};
-	// const multiplyPrice = () => {
-	// 	let price = 0;
-	// 	for (let i = 0; i < cart.length; i++) {
-	// 		price += Number(cart[i].price) * cart[i].quantity;
-	// 	}
-	// 	return price;
-	// };
-	// console.log(multiplyPrice());
+	let totalTTC = 0;
 
 	const total = (frais) => {
-		return parseInt(subTotal()) + frais;
+		return parseInt(totalPrice) + frais;
 	};
 
 	return (
@@ -64,7 +50,7 @@ const Cart = ({ cart, addCart, subStractCart }) => {
 											</div>
 											<span className="cart_item-name">{item.title}</span>
 											<span className="cart_amount">
-												{item.quantity < 2 ? item.price : totalTTC} €
+												{item.quantity < 2 ? item.price : totalTTC.toFixed(2)} €
 											</span>
 										</div>
 									</div>
@@ -74,11 +60,11 @@ const Cart = ({ cart, addCart, subStractCart }) => {
 						<div className="cart_results">
 							<div className="cart_result-line">
 								<span className="cart_result-name">Sous-total</span>
-								<span className="cart_amount">{subTotal().toFixed(2)} €</span>
+								<span className="cart_amount">{totalPrice} €</span>
 							</div>
 							<div className="cart_result-line">
 								<span className="cart_result-name">Frais de livraison</span>
-								<span className="cart_amount">{FRAIS_L} €</span>
+								<span className="cart_amount">{FRAIS_L.toFixed(2)} €</span>
 							</div>
 						</div>
 						<div className="cart_total">
