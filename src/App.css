@@ -26,6 +26,12 @@ body {
   background-color: var(--bg-sections);
 }
 
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /* Titles */
 
 h1,

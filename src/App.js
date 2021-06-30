@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Content from "./components/Content";
 import axios from "axios";
+import { BallSpinner } from "react-spinners-kit";
 import "./App.css";
 
 function App() {
@@ -22,7 +23,9 @@ function App() {
   }, []);
 
   return isLoading ? (
-    <span>En cours de chargement...</span>
+    <div className="loading">
+      <BallSpinner size={30} color="#00cdbd" loading={isLoading} />
+    </div>
   ) : (
     <>
       <Header />
