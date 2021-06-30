@@ -52,7 +52,7 @@ const Content = ({ data }) => {
 								<div className="menuItems">
 									<h2>{category.name}</h2>
 									<div className="menuItems--items">
-										<Section data={category.meals} addCart={addCart} />;
+										<Section data={category.meals} addCart={addCart} />
 									</div>
 								</div>
 							)}

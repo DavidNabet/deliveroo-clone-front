@@ -36,7 +36,7 @@ const Cart = ({ cart, addCart, subStractCart }) => {
 				className={cart.length > 0 ? "cart_added" : "cart_empty"}
 			>
 				{cart.length < 1 ? (
-					<span>Votre panier est vide</span>
+					<span className="empty">Votre panier est vide</span>
 				) : (
 					<div>
 						{cart.map((item, index) => {
