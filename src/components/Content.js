@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, Fragment } from "react";
 import Section from "./Section";
 import Cart from "./Cart";
 
@@ -47,7 +47,7 @@ const Content = ({ data }) => {
 			<div className="menu">
 				{data.map((category, i) => {
 					return (
-						<div key={i}>
+						<Fragment key={i}>
 							{category.meals.length > 0 && (
 								<div className="menuItems">
 									<h2>{category.name}</h2>
@@ -56,7 +56,7 @@ const Content = ({ data }) => {
 									</div>
 								</div>
 							)}
-						</div>
+						</Fragment>
 					);
 				})}
 			</div>
